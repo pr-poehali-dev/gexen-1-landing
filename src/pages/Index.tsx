@@ -69,7 +69,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-industrial-dark via-secondary to-primary">
+      <section className="py-20 bg-gradient-to-r from-primary via-secondary to-industrial-teal">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -91,7 +91,11 @@ const Index = () => {
                   <Icon name="FileText" size={20} className="mr-2" />
                   Техническая документация
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+                <Button 
+                  size="lg" 
+                  className="bg-secondary hover:bg-secondary/90 text-white shadow-lg transform hover:scale-105 transition-all duration-200"
+                  onClick={() => window.open('mailto:info@hexene-1.ru?subject=Коммерческое предложение Гексен-1&body=Здравствуйте! Прошу предоставить коммерческое предложение на поставку Гексен-1.', '_blank')}
+                >
                   <Icon name="Mail" size={20} className="mr-2" />
                   Запросить коммерческое предложение
                 </Button>
@@ -99,11 +103,46 @@ const Index = () => {
             </div>
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <img 
-                  src="/img/587015df-bbd7-44f0-a68c-206ad6785293.jpg" 
-                  alt="Гексен-1 молекулярная структура"
-                  className="w-full h-auto rounded-lg shadow-2xl"
-                />
+                <div className="relative w-full h-96 bg-gradient-to-br from-white/20 to-white/5 rounded-lg overflow-hidden">
+                  {/* 3D Molecule Visualization */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative w-80 h-80">
+                      {/* Carbon atoms */}
+                      <div className="absolute w-6 h-6 bg-industrial-dark rounded-full animate-pulse" style={{left: '20px', top: '160px'}}></div>
+                      <div className="absolute w-6 h-6 bg-industrial-dark rounded-full animate-pulse" style={{left: '80px', top: '160px', animationDelay: '0.2s'}}></div>
+                      <div className="absolute w-6 h-6 bg-industrial-dark rounded-full animate-pulse" style={{left: '140px', top: '160px', animationDelay: '0.4s'}}></div>
+                      <div className="absolute w-6 h-6 bg-industrial-dark rounded-full animate-pulse" style={{left: '200px', top: '160px', animationDelay: '0.6s'}}></div>
+                      <div className="absolute w-6 h-6 bg-industrial-dark rounded-full animate-pulse" style={{left: '260px', top: '160px', animationDelay: '0.8s'}}></div>
+                      <div className="absolute w-6 h-6 bg-industrial-dark rounded-full animate-pulse" style={{left: '320px', top: '160px', animationDelay: '1s'}}></div>
+                      
+                      {/* Hydrogen atoms */}
+                      <div className="absolute w-3 h-3 bg-white rounded-full" style={{left: '15px', top: '130px'}}></div>
+                      <div className="absolute w-3 h-3 bg-white rounded-full" style={{left: '15px', top: '190px'}}></div>
+                      <div className="absolute w-3 h-3 bg-white rounded-full" style={{left: '330px', top: '130px'}}></div>
+                      <div className="absolute w-3 h-3 bg-white rounded-full" style={{left: '330px', top: '190px'}}></div>
+                      <div className="absolute w-3 h-3 bg-white rounded-full" style={{left: '340px', top: '160px'}}></div>
+                      
+                      {/* Bonds */}
+                      <div className="absolute h-0.5 bg-white/80" style={{left: '38px', top: '172px', width: '30px'}}></div>
+                      <div className="absolute h-0.5 bg-white/80" style={{left: '98px', top: '172px', width: '30px'}}></div>
+                      <div className="absolute h-0.5 bg-white/80" style={{left: '158px', top: '172px', width: '30px'}}></div>
+                      <div className="absolute h-0.5 bg-white/80" style={{left: '218px', top: '172px', width: '30px'}}></div>
+                      <div className="absolute h-0.5 bg-white/80" style={{left: '278px', top: '172px', width: '30px'}}></div>
+                      
+                      {/* Double bond at the beginning */}
+                      <div className="absolute h-0.5 bg-primary" style={{left: '38px', top: '168px', width: '30px'}}></div>
+                      <div className="absolute h-0.5 bg-primary" style={{left: '38px', top: '176px', width: '30px'}}></div>
+                      
+                      {/* Formula overlay */}
+                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-lg font-mono bg-black/30 px-4 py-2 rounded-lg backdrop-blur-sm">
+                        CH₂=CH-CH₂-CH₂-CH₂-CH₃
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Rotating background effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-30 animate-spin" style={{animationDuration: '20s'}}></div>
+                </div>
               </div>
             </div>
           </div>
@@ -401,11 +440,20 @@ const Index = () => {
             о поставках и технической поддержке
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
+            <Button 
+              size="lg" 
+              className="bg-secondary hover:bg-secondary/90 shadow-lg"
+              onClick={() => window.open('mailto:sales@hexene-1.ru?subject=Запрос на поставку Гексен-1&body=Здравствуйте! Прошу связаться со мной для обсуждения поставок Гексен-1.', '_blank')}
+            >
               <Icon name="Phone" size={20} className="mr-2" />
               Связаться с отделом продаж
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-industrial-dark">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white text-white hover:bg-white hover:text-primary shadow-lg"
+              onClick={() => window.open('/technical-docs.pdf', '_blank')}
+            >
               <Icon name="Download" size={20} className="mr-2" />
               Скачать техническую документацию
             </Button>
